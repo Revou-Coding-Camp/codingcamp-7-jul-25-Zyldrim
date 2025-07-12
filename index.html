@@ -1,24 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List - Aabid</title>
 
-    <!-- CSS External -->
-     <link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To do list - Aabid</title>
+
+  <!-- CSS External -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-    <!-- Hero Website -->
-    <header>
-        <h1>To Do List</h1>
-    </header>
+<body class="flex flex-col items-center justify-evenly min-h-screen bg-blue-100">
+  <!-- Hero Website -->
+  <header>
+    <h1 class="text-3xl font-bold">Todo List</h1>
+  </header>
 
-    <main></main>
-    
-    <footer>
-        <span>&copy; 2025 Aabid. All rights reserved.</span>
-    </footer>
+  <main class="py-[16px] rounded">
+    <!-- Todo Input -->
+    <form class="flex justify-between p-[8px]">
+      <div class="flex gap-[8px]">
+        <input type="text" id="task-input" class="border rounded p-[4px] bg-white" placeholder="Add a new task" />
+        <input type="date" id="due-date-input" class="border rounded p-[4px] bg-white" placeholder="Due date" />
+      </div>
+      <button type="button" class="bg-blue-500 text-white p-[4px] rounded w-[50px]" onclick="addTask();">+</button>
+    </form>
+
+    <!-- Todo Action -->
+    <section class="flex justify-between p-[8px]">
+      <div class="flex gap-[8px]">
+        <button class="bg-gray-200 p-[4px] rounded" onclick="setFilter('completed')">Show Completed</button>
+        <button class="bg-green-200 p-[4px] rounded" onclick="setFilter('all')">Show All</button>
+        <button class="bg-yellow-200 p-[4px] rounded" onclick="setFilter('pending')">Show Pending</button>
+      </div>
+
+      <button class="bg-red-500 text-white p-[4px] rounded" onclick="deleteAllTasks();">Delete All</button>
+    </section>
+
+    <!-- Todo List -->
+    <section>
+      <header>
+        <h2 class="text-xl font-bold">Tasks</h2>
+      </header>
+
+      <!-- Task List -->
+      <div id="task-list">
+        <p>Task is Empty!</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-gray-500 mt-6">
+    <span>&copy; 2025 Aabid. All rights reserved.</span>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
+
 </html>
